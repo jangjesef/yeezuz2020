@@ -1,5 +1,6 @@
 ---
 import ProductCard from '../components/ProductCard';
+import '../styles/global.css';
 
 // Definice produktů
 const products = [
@@ -34,7 +35,6 @@ const products = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Produkty | Yeezuz2020 obchod</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
 <body class="bg-white text-black font-sans">
@@ -47,6 +47,7 @@ const products = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {products.map((product) => (
         <ProductCard
+          client:load
           name={product.name}
           price={product.price}
           image={product.image}

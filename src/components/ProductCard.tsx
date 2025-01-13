@@ -13,6 +13,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ name, price, image, priceId, description }: ProductCardProps) {
   const handleBuyClick = async () => {
+    console.log('Kliknutí na tlačítko Koupit');
     const stripe = await stripePromise;
     
     if (!stripe) {
@@ -20,21 +21,33 @@ export default function ProductCard({ name, price, image, priceId, description }
       return;
     }
 
-    const response = await fetch('/api/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        items: [{
-          priceId,
-          quantity: 1,
-        }],
-      }),
-    });
+    try {
+      console.log('Odesílám požadavek na /api/create-checkout-session');
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: [{
+            priceId,
+            quantity: 1,
+          }],
+        }),
+      });
 
-    const { url } = await response.json();
-    window.location.href = url;
+      console.log('Odpověď od serveru:', response);
+      const data = await response.json();
+      console.log('Data:', data);
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error('Chybí URL v odpovědi');
+      }
+    } catch (error) {
+      console.error('Chyba při zpracování platby:', error);
+    }
   };
 
   return (
