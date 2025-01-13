@@ -1,10 +1,38 @@
+---
+import ProductCard from '../components/ProductCard';
+
+// Definice produktů
+const products = [
+  {
+    name: "Exodus CD",
+    price: 349,
+    image: "/images/exodus1.webp",
+    description: "Následující album Exodus přichází s novým zvukem.",
+    priceId: "price_1QSqJ3ECICPYvq5cHthU9nQK"
+  },
+  {
+    name: "Leopard CD",
+    price: 299,
+    image: "/images/leopard1.png",
+    description: "Debutové album Leopard v digitální kvalitě na CD.",
+    priceId: "price_1QSqJ3ECICPYvq5cFS1dtBzq"
+  },
+  {
+    name: "MDMX - Leopoldstadt",
+    price: 499,
+    image: "/images/leopoldstadt1.jpg",
+    description: "Debutové album Leopoldstadt v analogové kvalitě na kazetě.",
+    priceId: "price_1QSqHZECICPYvq5c84nAjsBM"
+  }
+];
+---
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Produkty | Yeezuz2020 obchod</title>
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,71 +45,16 @@
 
   <main class="max-w-7xl mx-auto my-8 px-4">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Produkt 1 -->
-      <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105">
-        <img src="/images/exodus1.webp" alt="Exodus CD" class="w-full h-64 object-cover" />
-        <div class="p-4">
-          <h2 class="text-2xl mb-2">Exodus CD</h2>
-          <p class="text-gray-600 mb-4">Následující album Exodus přichází s novým zvukem.</p>
-          <p class="text-xl font-bold text-gray-800 mb-2">349 Kč</p>
-          <button
-            class="w-full py-2 px-4 bg-black text-white border border-black rounded-full hover:bg-white hover:text-black transition-colors snipcart-add-item"
-            data-item-id="exodus-cd"
-            data-item-name="Exodus CD"
-            data-item-price="349"
-            data-item-url="/merch"
-            data-item-image="/images/exodus1.webp">
-            Přidat do košíku
-          </button>
-        </div>
-      </div>
-
-      <!-- Produkt 2 -->
-      <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105">
-        <img src="/images/leopard1.png" alt="Leopard CD" class="w-full h-64 object-cover" />
-        <div class="p-4">
-          <h2 class="text-2xl mb-2">Leopard CD</h2>
-          <p class="text-gray-600 mb-4">Debutové album Leopard v digitální kvalitě na CD.</p>
-          <p class="text-xl font-bold text-gray-800 mb-2">299 Kč</p>
-          <button
-            class="w-full py-2 px-4 bg-black text-white border border-black rounded-full hover:bg-white hover:text-black transition-colors snipcart-add-item"
-            data-item-id="leopard-cd"
-            data-item-name="Leopard CD"
-            data-item-price="299"
-            data-item-url="/merch"
-            data-item-image="/images/leopard1.png">
-            Přidat do košíku
-          </button>
-        </div>
-      </div>
-
-      <!-- Produkt 3 -->
-      <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105">
-        <img src="/images/leopoldstadt1.jpg" alt="MDMX - Leopoldstadt" class="w-full h-64 object-cover" />
-        <div class="p-4">
-          <h2 class="text-2xl mb-2">MDMX - Leopoldstadt</h2>
-          <p class="text-gray-600 mb-4">Debutové album Leopoldstadt v analogové kvalitě na kazetě.</p>
-          <p class="text-xl font-bold text-gray-800 mb-2">499 Kč</p>
-          <button
-            class="w-full py-2 px-4 bg-black text-white border border-black rounded-full hover:bg-white hover:text-black transition-colors snipcart-add-item"
-            data-item-id="leopoldstadt-cassete"
-            data-item-name="MDMX - Leopoldstadt"
-            data-item-price="499"
-            data-item-url="/merch"
-            data-item-image="/images/leopoldstadt1.jpg"
-            data-item-custom1-name="Velikost"
-            data-item-custom1-options="S|M|L|XL">
-            Přidat do košíku
-          </button>
-        </div>
-      </div>
-
-      <!-- Místo pro další produkty -->
+      {products.map((product) => (
+        <ProductCard
+          name={product.name}
+          price={product.price}
+          image={product.image}
+          description={product.description}
+          priceId={product.priceId}
+        />
+      ))}
     </div>
   </main>
-  <script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
-  <div hidden id="snipcart" data-api-key="MjA0NmI4MGEtNDA3ZC00ZGU4LWEwYTUtNzE0ZGRlNmM4NmU3NjM4NjA1Mjk2MjYwOTY4Mjg1"></div>
-  </body>
-  </html>
 </body>
 </html>
