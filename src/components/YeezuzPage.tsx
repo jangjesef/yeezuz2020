@@ -97,7 +97,7 @@ const YeezuzPage = () => {
           playsInline
           muted
         >
-          <source src="/Bigsteppa.mp4" type="video/mp4" />
+          <source src="/cherry.mp4" type="video/mp4" />
         </video>
 
         {/* Top Navigation */}
