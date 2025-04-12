@@ -11,7 +11,7 @@ const LoadingSpinner = () => {
     >
       <motion.img 
         src="/loading.png" 
-        alt="Načítání" 
+        alt="Loading" 
         className="w-64 h-64"
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -57,7 +57,7 @@ const YeezuzPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Zobrazí načítací animaci na 3 sekundy
+    }, 3000); // Displays the loading animation for 3 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -158,15 +158,15 @@ const YeezuzPage = () => {
               whileTap={{ scale: 0.95 }}
             >
               LISTEN NOW
-           <motion.button
-  onClick={() => window.open("https://www.yeezuz2020.store/", "_blank")}
-  className="text-lg md:text-xl hover:text-gray-300 bg-transparent border-none cursor-none"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
->
-  MERCHANDISE
-</motion.button>
-            ))}
+            </motion.button>
+            <motion.button
+              onClick={() => window.open("https://www.yeezuz2020.store/", "_blank")}
+              className="text-lg md:text-xl hover:text-gray-300 bg-transparent border-none cursor-none"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              MERCHANDISE
+            </motion.button>
           </motion.div>
         </div>
 
