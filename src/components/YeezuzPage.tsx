@@ -194,7 +194,7 @@ const YeezuzPage = () => {
 
           {/* Footer */}
           <div className="text-xs md:text-sm">
-            © 2024 YEEZUZ2020
+            © 2025 YEEZUZ2020
           </div>
         </div>
       </div>
