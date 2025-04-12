@@ -100,17 +100,6 @@ const YeezuzPage = () => {
           <source src="/cherry.mp4" type="video/mp4" />
         </video>
 
-        {/* Nově přidaný obrázek s glitch efektem přes video */}
-        <motion.img
-          src="/labute_cover.jpg"
-          alt="Labutě Album Cover"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.5, x: [0, 5, -5, 0], filter: ['blur(0px)', 'blur(2px)', 'blur(0px)'] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          style={{ mixBlendMode: 'overlay' }}
-        />
-
         {/* Top Navigation */}
         <nav className="w-full p-4 flex justify-between items-center text-xs md:text-sm z-10">
           <div className="space-x-4 md:space-x-6">
@@ -183,6 +172,7 @@ const YeezuzPage = () => {
 
         {/* Bottom Unmute Button and Footer */}
         <div className="w-full p-4 flex justify-between items-center z-10">
+          {/* Mobile UNMUTE Button */}
           <motion.button
             className="block md:hidden px-3 py-2 rounded-full border border-white flex items-center justify-center hover:bg-red-500 hover:text-white transition-all duration-300 text-xs cursor-none"
             onClick={toggleMute}
@@ -192,6 +182,7 @@ const YeezuzPage = () => {
             🎵 {isMuted ? 'Play' : 'Pause'}
           </motion.button>
 
+          {/* Desktop UNMUTE Button */}
           <motion.button
             className="hidden md:block px-3 py-2 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 text-xs md:text-sm cursor-none"
             onClick={toggleMute}
@@ -201,6 +192,7 @@ const YeezuzPage = () => {
             {isMuted ? 'UNMUTE' : 'MUTE'} MUSIC
           </motion.button>
 
+          {/* Footer */}
           <div className="text-xs md:text-sm">
             © 2025 YEEZUZ2020
           </div>
