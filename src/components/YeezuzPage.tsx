@@ -77,7 +77,7 @@ const YeezuzPage = () => {
 
   const navItems = [
     { name: 'HOME', path: '/' },
-    { name: 'STORE', path: '/merchandise' },
+    { name: 'STORE', path: 'https://www.yeezuz2020.store/' },
   ];
 
   return (
@@ -124,7 +124,7 @@ const YeezuzPage = () => {
               INSTAGRAM
             </motion.button>
             <motion.button
-              onClick={() => window.location.href = "mailto:yeezuz332@gmail.com"}
+              onClick={() => window.location.href = "mailto:booking@yeezuz2020.com"}
               className="hover:text-gray-300 bg-transparent border-none cursor-none"
               whileHover={{ scale: 1.05 }}
             >
@@ -158,17 +158,14 @@ const YeezuzPage = () => {
               whileTap={{ scale: 0.95 }}
             >
               LISTEN NOW
-            </motion.button>
-            {['MERCHANDISE', 'TICKETS'].map((item) => (
-              <motion.button
-                key={item}
-                onClick={() => window.location.href = `/${item.toLowerCase()}`}
-                className="text-lg md:text-xl hover:text-gray-300 bg-transparent border-none cursor-none"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {item}
-              </motion.button>
+           <motion.button
+  onClick={() => window.open("https://www.yeezuz2020.store/", "_blank")}
+  className="text-lg md:text-xl hover:text-gray-300 bg-transparent border-none cursor-none"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  MERCHANDISE
+</motion.button>
             ))}
           </motion.div>
         </div>
